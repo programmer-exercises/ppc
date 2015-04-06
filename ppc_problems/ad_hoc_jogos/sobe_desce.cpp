@@ -1,65 +1,60 @@
 #include <iostream>
-#include <vector>
-#include <map>
 #include <string>
-#include <cmath>
+#include <map>
 
 using namespace std;
 
 int main() {
 
-	int t;
-	cin >> t;
-	vector<char> grid;
+	int tests;
+	cin >> tests;
 
-	for(int i = 0; i<t ; i++){
-		cout << "test: " << i << endl;
+	for(int t = 0; t<tests ; t++){
 
-		unsigned int a, b, c;
-		map<string, int> pl;
-		map<int,int> jumper;
+		unsigned int player, jump, dice;
+		cin >> player >> jump >> dice;
 
-		cin >> a >> b >> c;
+		map<int,int> jumpers;
+		map<int,int> players;
 
-		// Map the players position
-		for(unsigned int n = 0; n<a ; n++){
-			string player = to_string(n+1);
-			pl[player] = 1;
+		// Set players location
+		for(unsigned int p = 0; p<player ; p++){
+			players[p+1] = 1;
 		}
 
-		// Map the position of the stairs or slide
-		for(unsigned int j = 0; j<b ; j++){
-			int in,out;
+		// Set jumpers location
+		for(unsigned int j = 0; j<jump ; j++){
+			int in, out;
 			cin >> in >> out;
-			jumper[in] = out;
+			jumpers[in] = out;
 		}
 
-		// Number of player
-		for(unsigned int m = 0; m<a ; m++){
-			string player = to_string(m+1);
-			int dice;
-			cin >> dice;
+		// Set the dices roles
+		unsigned int counter = 1; // replesent the player on the round
+		for(unsigned int d = 0; d<dice ; d++){
 
-			// Move player
-			pl[player] += dice;
+			int num;
+			cin >> num;
 
-			// Check player position
-			auto jumper_out = jumper.find(pl[player]);
-			if(jumper_out != jumper.end()){
-				pl[player] = jumper_out->second;
+			// Make a move
+			players[counter] += num;
+
+			// Checks player position
+			auto jump_to = jumpers.find(players[counter]);
+			if(jump_to != jumpers.end()){
+				players[counter] = jump_to->second;
 			}
 
-			// Check end of the game
-			if(pl[player] >= 100){
-				break;
+			// Reset counter
+			counter ++;
+			if(counter > player){
+				counter = 1;
 			}
 		}
-
 
 		// Presentation
-		for(unsigned int plr = 0; plr<a ; plr++){
-			string player = to_string(plr+1);
-			cout << "Position of player " << plr+1 << " is " << pl[player] << "." << endl;
+		for(unsigned int s = 0; s<player ; s++){
+			cout << "Position of player " << s+1 << " is " << players[s+1] << "." << endl;
 		}
 	}
 
