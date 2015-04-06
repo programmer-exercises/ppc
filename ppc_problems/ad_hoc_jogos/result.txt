@@ -1,5 +1,6 @@
-Position of player 1 is 89.
-Position of player 2 is 22.
-Position of player 3 is 20.
-Position of player 4 is 102.
-Position of player 5 is 96.
+38 22
+M
+14 44
+L
+44 56
+L
