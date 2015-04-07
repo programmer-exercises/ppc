@@ -9,6 +9,7 @@ int main() {
 
     while(cin >> rounds && rounds!=0){
 
+        unsigned int mark_bonus = 0, leti_bonus = 0;
         unsigned int mark_p = 0 , leti_p = 0;
         vector<int> mark, leti;
 
@@ -33,8 +34,8 @@ int main() {
         }
 
         // Check bonus
-        unsigned int mark_bonus = 0, leti_bonus = 0;
         for(int r = 0; r<rounds ; r++){
+
             // Mark bonus
             if(mark[r] == mark[r+1] && mark[r+1] == mark[r+2] && leti[r] != leti[r+1] && leti[r+1] != leti[r+2]){
                 mark[r+2] = 11;
@@ -52,6 +53,7 @@ int main() {
         mark_p += mark_bonus;
         leti_p += leti_bonus;
 
+        cout << mark_bonus << " " << leti_bonus << endl;
         cout << mark_p << " " << leti_p << endl;
 
         // Check Winner
