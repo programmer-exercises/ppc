@@ -29,6 +29,7 @@ int main() {
 			jumpers[in] = out;
 		}
 
+		int winner = 0;
 		// Set the dices roles
 		unsigned int counter = 1; // replesent the player on the round
 		for(unsigned int d = 0; d<dice ; d++){
@@ -36,13 +37,24 @@ int main() {
 			int num;
 			cin >> num;
 
-			// Make a move
-			players[counter] += num;
+			// Checks winner
+			if(winner == 0){
+				// Make a move
+				players[counter] += num;
+				if(players[counter] > 100){
+					players[counter] = 100;
+				}
+			}
 
 			// Checks player position
 			auto jump_to = jumpers.find(players[counter]);
 			if(jump_to != jumpers.end()){
 				players[counter] = jump_to->second;
+			}
+
+			// Set winner
+			if(players[counter] == 100){
+				winner = 1;
 			}
 
 			// Reset counter
