@@ -4,15 +4,25 @@ using namespace std;
 
 int main(){
 
-	int M, N;
+	long long M, N;
 	while(cin >> M >> N){
-		for(int i = M; i<M ; i--){
-			if(i==0){
-				break;
-			}
-			M
+		if(M == 0){
+			M = 1;
+		} else {
+			for(int i = M - 1 ; i>0 ; i--){
+				M *= i;
+			}	
 		}
-	}
 
+		if(N == 0){
+			N = 1;
+		} else {
+			for(int j = N - 1 ; j>0 ; j--){
+				N *= j;
+			}
+		}
+		
+		cout << M+N << endl;
+	}
 	return 0;
 }
