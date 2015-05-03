@@ -9,7 +9,6 @@ int main() {
 	double at,ac,atr,aq,ar;
 
 	cin >> A >> B>> C;
-
 	at = A*C/2;
 	ac = 3.14159*C*C;
 	atr = C*(A+B)/2;
