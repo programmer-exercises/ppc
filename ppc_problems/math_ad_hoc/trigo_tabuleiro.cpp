@@ -19,4 +19,5 @@ int main(){
 		cout << (e/6)/1000 << " kg" << endl;
 	}
 	return 0;
+
 }
