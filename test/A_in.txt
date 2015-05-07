@@ -1,0 +1,5 @@
+4
+Terra 120 Terra
+Terra 120 Agua
+Ar 51 Fogo
+Ar 10000 Agua
