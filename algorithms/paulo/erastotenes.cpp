@@ -1,4 +1,7 @@
 #include <iostream>
+#include <cmath>
+
+using namespace std;
 
 #define MAX 10000
 
@@ -7,17 +10,13 @@ inf pdimoz[MAX];
 
 void precomp(){
 	memset(sieve,0xff,(MAX+1)*sizeof(bool));
-	for(int i=0 ; i<=MAX ; ++i){
-		sieve[i] = true;
-	}
 	sieve[0] = false;
 	sieve[1] = false;
-	for (int j = 4; j <= MAX ; j+=2){
-		sieve[j] = false;
-	}
-	for (int i = 3; i <= MAX; i+=2){
+
+	int limit = sqrt(MAX);
+	for (int i = 3; i*i <= limit; i+=2){
 		if(sieve[i]){
-			for (int j = 2*i; j <= MAX ; j+=i){
+			for (int j = i*i; j <= MAX ; j+=i){
 				sieve[j] = false;
 			}
 		}
