@@ -8,6 +8,7 @@ int mdc(int a, int b){
 
 int main() {
 	int a, b;
-	cin >> a >> b;
-	cout << mdc(a,b);
+	while(cin >> a >> b){
+		cout << mdc(a,b) << endl;
+	}
 }
