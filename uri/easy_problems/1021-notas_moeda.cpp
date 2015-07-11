@@ -2,13 +2,15 @@
 
 using namespace std;
 
+// 17649.53
 int main() {
 
 	long double valor;
 	cin >> valor;
 
   int reais = (int)valor;
-  int centavos = (int)((valor - reais)*100);
+  int centavos = ((valor-reais)*100);
+  centavos++;
 
   cout << "NOTAS:" << endl;
   cout << reais/100 << " nota(s) de R$ 100,00" << endl;
@@ -29,7 +31,7 @@ int main() {
 
   cout << centavos/50 << " moeda(s) de R$ 0.50" << endl;
   centavos %= 50;
-  cout << centavos/25 << " moeda(s) de R$ 0.20" << endl;
+  cout << centavos/25 << " moeda(s) de R$ 0.25" << endl;
   centavos %= 25;
   cout << centavos/10 << " moeda(s) de R$ 0.10" << endl;
   centavos %= 10;

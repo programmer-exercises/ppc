@@ -1,15 +1,16 @@
 #include <iostream>
- 
+
+#define ll long long
 using namespace std;
 
-int pisano(int N){
+ll pisano(int N){
 	if (N==1) return 1;
-	int  prev = 1;
-	int next = 2%N;
-	int M = 1;
+	ll  prev = 1;
+	ll next = 2%N;
+	ll M = 1;
 	while(prev!=1 || next != 1){
 		++M;
-		int temp = (next + prev)%N;
+		ll temp = (next + prev)%N;
 		prev = next;
 		next = temp;
 	}
