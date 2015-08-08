@@ -2,15 +2,15 @@
 
 using namespace std;
 
-// 17649.53
+// Problema de precisão 17649.53
 int main() {
 
 	long double valor;
 	cin >> valor;
 
   int reais = (int)valor;
-  int centavos = ((valor-reais)*100);
-  centavos++;
+  int centavos = ((valor*100)-(reais*100));
+  cout << centavos << endl;
 
   cout << "NOTAS:" << endl;
   cout << reais/100 << " nota(s) de R$ 100,00" << endl;
