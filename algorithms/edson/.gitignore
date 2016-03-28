@@ -1,8 +1,0 @@
-*.cc
-*.class
-*.o
-*.swp
-prog
-out.txt
-elapsed.txt
-files
